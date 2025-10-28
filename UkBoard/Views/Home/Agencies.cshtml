@@ -1,0 +1,317 @@
+﻿@{
+    ViewData["Title"] = "Agencies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header id="home">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('../images/slider-2.jpg');">
+                <div class="carousel-caption text-white">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="~/images/header-logo.png" alt="Logo" height="70">
+                        <span class="carousel-span mt-3">The UK Board For Learning and Training</span>
+                    </div>
+                    <h1>Empowering Trainers. Accrediting Excellence. Shaping Futures</h1>
+                    <p> Driving growth through accredited excellence and innovation.</p>
+                    <a asp-controller="Home" asp-action="Index" asp-fragment="majors" aria-label="Know more services" class="btn">Know More</a>
+                </div>
+                <div class=" info-boxes container-fluid text-white">
+                    <div class="row g-2">
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box1">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-compass" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Professional Guidance</h2>
+                                        <p>Learn from certified experts dedicated to turning your potential into performance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box2">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Flexible Learning</h2>
+                                        <p>Study at your own pace through modern online platforms and blended programs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box3">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Career Support</h2>
+                                        <p>Access career guidance, internships, and job placement opportunities worldwide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('../images/slider-1.jpg');">
+                <div class="carousel-caption text-white">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="~/images/header-logo.png" alt="Logo" height="70">
+                        <span class="carousel-span mt-3">The UK Board For Learning and Training</span>
+                    </div>
+                    <h1>Where Learning Meets Global Recognition.</h1>
+                    <p>Bridging knowledge and global credibility for every learner.</p>
+                    <a asp-controller="Home" asp-action="Index" asp-fragment="majors" aria-label="Know more services" class="btn">Know More</a>
+                </div>
+                <div class=" info-boxes container-fluid text-white">
+                    <div class="row g-2">
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box1">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-compass" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Professional Guidance</h2>
+                                        <p>Learn from certified experts dedicated to turning your potential into performance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box2">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Flexible Learning</h2>
+                                        <p>Study at your own pace through modern online platforms and blended programs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box3">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Career Support</h2>
+                                        <p>Access career guidance, internships, and job placement opportunities worldwide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('../images/slider-3.jpg');">
+                <div class="carousel-caption text-white">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="~/images/header-logo.png" alt="Logo" height="70">
+                        <span class="carousel-span mt-3">The UK Board For Learning and Training</span>
+                    </div>
+                    <h1>Your Gateway to Certified Growth and Professional Credibility.</h1>
+                    <p> Gain the credentials that elevate your career and validate your expertise.</p>
+                    <a asp-controller="Home" asp-action="Index" asp-fragment="majors" aria-label="Know more services" class="btn">Know More</a>
+                </div>
+                <div class=" info-boxes container-fluid text-white">
+                    <div class="row g-2">
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box1">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-compass" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Professional Guidance</h2>
+                                        <p>Learn from certified experts dedicated to turning your potential into performance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box2">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="h5">Flexible Learning</h2>
+                                        <p>Study at your own pace through modern online platforms and blended programs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="info-box box3">
+                                <div class="overlay">
+                                    <div class="icon">
+                                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                                    </div>
+                                    <div>
+                                        <h2 classs="h5">Career Support</h2>
+                                        <p>Access career guidance, internships, and job placement opportunities worldwide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"
+                aria-label="slider prev button" aria-expanded="false">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"
+                aria-label="slider next button" aria-expanded="false">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</header>
+<main>
+    <section class="section-padding" id="agencies">
+        <div class="container">
+            <h2 class="text-center mb-5 title fst-italic">Our Official Agencies</h2>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/england.jpg" alt="england flag">
+                        </div>
+                        <div class="content">
+                            <h3>England</h3>
+                            <p class="text-muted">Our agency connects students with top UK universities and supports every step of the application process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/USA.jpg" alt="USA flag">
+                        </div>
+                        <div class="content">
+                            <h3>United States of America</h3>
+                            <p class="text-muted">We assist students in joining top U.S. institutions with full guidance on admissions and visas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/egypt.jpg" alt="egypt flag">
+                        </div>
+                        <div class="content">
+                            <h3>Egypt</h3>
+                            <p class="text-muted">Our Cairo-based agency helps students across North Africa access global study opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/lebanon.jpg" alt="lebanon flag">
+                        </div>
+                        <div class="content">
+                            <h3>Lebanon</h3>
+                            <p class="text-muted">We guide students through applications, and placements across top global programs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/syria.jpg" alt="syria flag">
+                        </div>
+                        <div class="content">
+                            <h3>Syria</h3>
+                            <p class="text-muted">Our Syrian team offers trusted educational support and access to international institutions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/morocco.jpg" alt="morocco flag">
+                        </div>
+                        <div class="content">
+                            <h3>Morocco</h3>
+                            <p class="text-muted">We provide expert support for students seeking education abroad from Morocco and beyond.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/algeria.jpg" alt="morocco flag">
+                        </div>
+                        <div class="content">
+                            <h3>Algeria</h3>
+                            <p class="text-muted">Helping Algerian students explore international study opportunities with personalized advice and trusted educational support.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/tunisia.jpg" alt="morocco flag">
+                        </div>
+                        <div class="content">
+                            <h3>Tunisia</h3>
+                            <p class="text-muted">Empowering students from Tunisia to pursue their academic dreams abroad with reliable guidance and dedicated support at every step.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/holland.png" alt="morocco flag">
+                        </div>
+                        <div class="content">
+                            <h3>Holland</h3>
+                            <p class="text-muted">Supporting students from Holland in discovering top global universities and achieving their international education goals with confidence.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/germany.jpg" alt="morocco flag">
+                        </div>
+                        <div class="content">
+                            <h3>Germany</h3>
+                            <p class="text-muted">Guiding students from Germany toward exceptional study opportunities abroad with expert advice and personalized educational support.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="agency-card">
+                        <div class="img">
+                            <img src="~/images/france.jpg" alt="morocco flag">
+                        </div>
+                        <div class="content">
+                            <h3>France</h3>
+                            <p class="text-muted">Assisting students from France in expanding their horizons through world-class study programs and expert support for a successful academic journey abroad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

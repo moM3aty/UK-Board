@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - لوحة التحكم</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/admin-layout.css" />
+    <link rel="stylesheet" href="~/css/admin-forms.css" />
+    <link rel="shortcut icon" href="~/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="page-overlay" id="page-overlay"></div>
+
+    <aside style="align-items:center;" class="sidebar" id="sidebar">
+        <div>
+            <img style="background-color:#fff; border-radius:50%; padding:20px; margin:20px auto;display:flex;justify-content:center" src="~/images/logo.png" width="150px" height="150px" alt="Logo" >
+        </div>
+
+        <div class="nav-menu-wrapper">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link @(ViewData["Title"]?.ToString() == "Manage Certificates" ? "active" : "")" asp-controller="Admin" asp-action="Index">
+                        <span class="nav-text">Certificates</span>
+                        <i class="fa-solid fa-certificate nav-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                <button type="submit" class="logout-button">
+                    <span class="nav-text">Log Out</span>
+                    <i class="fa-solid fa-right-from-bracket nav-icon"></i>
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <div class="main-content" id="main-content">
+
+        <main class="page-content">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebar = document.getElementById('sidebar');
+            const toggler = document.getElementById('sidebar-toggler');
+            const overlay = document.getElementById('page-overlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
+
+            if (toggler) {
+                toggler.addEventListener('click', toggleSidebar);
+            }
+            if (overlay) {
+                overlay.addEventListener('click', toggleSidebar);
+            }
+        });
+    </script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@model UkBoard.Models.CertificateViewModel
+
+@{
+    ViewData["Title"] = "Add New Certificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="admin-card form-card">
+            <h4 class="mb-4">New Certificate Details</h4>
+
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CertificateId" class="form-label"></label>
+                    <input asp-for="CertificateId" class="form-control" />
+                    <span asp-validation-for="CertificateId" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="CertificateImage" class="form-label"></label>
+                    <input asp-for="CertificateImage" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="CertificateImage" class="text-danger small"></span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-save">Create</button>
+                    <a asp-action="Index" class="btn btn-back">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

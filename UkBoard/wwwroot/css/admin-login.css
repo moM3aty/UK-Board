@@ -1,0 +1,199 @@
+﻿:root {
+    --primary-color: #193750;
+    --secondary-color: #931f16;
+    --accent-color: #e9c44a;
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --bg-light: #ffffff;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* 1. Branding Side (Right) */
+.login-branding-wrapper {
+    flex: 1;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/slider-1.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.branding-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+    .branding-content h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .branding-content p {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--accent-color);
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+/* 2. Form Side (Left) */
+.login-form-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: var(--bg-light);
+}
+
+.login-content {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+    .login-logo img {
+        height: 60px;
+    }
+
+    .login-logo span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+.login-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.login-content p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* Form Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+    .input-group .icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #aaa;
+        transition: color 0.3s ease;
+    }
+
+    .input-group .form-control {
+        width: 100%;
+        padding: 12px 15px 12px 45px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .input-group .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(25, 55, 80, 0.1);
+            outline: none;
+            background-color: var(--bg-light);
+        }
+
+            .input-group .form-control:focus + .icon {
+                color: var(--primary-color);
+            }
+
+/* Remember Me Checkbox */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Login Button */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bg-light);
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-login:hover {
+        background-color: #142c41;
+        box-shadow: 0 4px 15px rgba(25, 55, 80, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .btn-login:active {
+        transform: translateY(0);
+    }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .login-branding-wrapper {
+        /* إخفاء الجزء الأيمن في الشاشات الصغيرة */
+        display: none;
+    }
+
+    .login-form-wrapper {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-form-wrapper {
+        padding: 20px;
+    }
+
+    .login-content h2 {
+        font-size: 1.8rem;
+    }
+}

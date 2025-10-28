@@ -1,0 +1,67 @@
+﻿/* =================================
+    Secure Certificate Styles
+    =================================
+*/
+
+/* حاوية العرض الرئيسية */
+#certificateDisplay {
+    margin-top: 2rem;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-height: 100px;
+}
+
+/* تطبيق الحماية على الحاوية
+  هذه الحاوية ستُنشأ ديناميكياً بواسطة الجافاسكريبت
+*/
+.secure-image-container {
+    position: relative;
+    overflow: hidden;
+    /* منع تحديد النص */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+    /* منع سحب الصورة */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+    .secure-image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        /* منع التفاعل مع الصورة بالفأرة (يساعد في منع السحب) */
+        pointer-events: none;
+    }
+
+/* الحماية الأهم: إخفاء المحتوى عند محاولة الطباعة
+*/
+@media print {
+    /* إخفاء كل شيء ما عدا ما نريده */
+    body * {
+        visibility: hidden;
+    }
+
+    /* إخفاء حاوية الشهادة الآمنة بشكل خاص */
+    #secure-image-container, .secure-image-container {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* يمكن إظهار رسالة بدلاً منها إذا أردنا */
+    #print-message {
+        visibility: visible;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        color: #000;
+    }
+}

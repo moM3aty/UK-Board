@@ -1,0 +1,108 @@
+﻿@model IEnumerable<UkBoard.Models.Certificate>
+
+@{
+    ViewData["Title"] = "Certificates Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .btn-delete {
+        background-color: #b02a37;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.3rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-delete:hover {
+            background-color: #dc3545;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.35);
+        }
+
+</style>
+<div class="admin-card">
+    <div class="table-header">
+        <!-- Search Form -->
+        <form asp-action="Index" method="get" class="search-form">
+            <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" class="search-input" placeholder="Search by Certificate ID...">
+            <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+        </form>
+
+        <!-- Add New Button -->
+        <a asp-action="Create" class="btn-add-new">
+            <i class="fas fa-plus"></i> Add New
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Certificate ID</th>
+                    <th>Image Preview</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CertificateId)
+                        </td>
+                        <td>
+                            <img src="~/@item.ImagePath" alt="Certificate" class="certificate-image-thumb" />
+                        </td>
+                        <td class="actions-cell">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-edit">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="button" class="btn btn-delete delete-confirm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.delete-confirm').forEach(button => {
+                button.addEventListener('click', function () {
+                    const form = this.closest('form');
+
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "This certificate will be permanently deleted!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#0d1b2a',
+                        cancelButtonColor: '#c5a227',
+                        confirmButtonText: 'Yes, delete it!',
+                        cancelButtonText: 'Cancel',
+                        reverseButtons: true,
+                        background: '#ffffff',
+                        color: '#0d1b2a',
+                        customClass: {
+                            popup: 'rounded-3 shadow-lg text-start', 
+                            confirmButton: 'px-4 py-2 fw-bold',
+                            cancelButton: 'px-4 py-2 fw-bold'
+                        },
+                        didOpen: (popup) => {
+                            popup.setAttribute('dir', 'ltr'); 
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}
