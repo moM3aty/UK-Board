@@ -1,3 +1,4 @@
+wwwroot\css\admin-forms.css
 wwwroot\css\admin-layout.css
 wwwroot\css\admin-login.css
 wwwroot\css\all.min.css
@@ -124,4 +125,3 @@ wwwroot\webfonts\fa-solid-900.ttf
 wwwroot\webfonts\fa-solid-900.woff2
 wwwroot\webfonts\fa-v4compatibility.ttf
 wwwroot\webfonts\fa-v4compatibility.woff2
-wwwroot\css\admin-forms.css

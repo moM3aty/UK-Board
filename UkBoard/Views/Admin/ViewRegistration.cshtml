@@ -1,0 +1,115 @@
+﻿@model UkBoard.Models.StudentRegistration
+
+@{
+    ViewData["Title"] = "Registration Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="admin-card details-card">
+    <div class="details-header">
+        <div>
+            <h4 class="mb-1"><i class="fas fa-user-graduate me-2"></i> @Model.FullName</h4>
+            <span class="text-muted small"><i class="far fa-clock"></i> Submitted: @Model.RegistrationDate.ToString("dd MMM yyyy, hh:mm tt")</span>
+        </div>
+        <a asp-action="StudentRegistrations" class="btn-back-custom"><i class="fas fa-arrow-left"></i> Back to List</a>
+    </div>
+
+    <div class="details-info-grid">
+        <div class="info-item">
+            <label><i class="fas fa-phone"></i> Phone Number</label>
+            <div class="info-value">@Model.PhoneNumber</div>
+        </div>
+        <div class="info-item">
+            <label><i class="fas fa-book"></i> Desired Major</label>
+            <div class="info-value text-primary">@Model.Major</div>
+        </div>
+    </div>
+
+    <div class="charter-alert">
+        <i class="fas fa-check-circle"></i> Agreed to Transparency Charter & Enrollment Regulations
+    </div>
+
+    <h5 class="docs-title">Attached Documents</h5>
+
+    <div class="docs-grid">
+        <!-- Personal Photo -->
+        <div class="doc-card">
+            <div class="doc-label">Personal Photo</div>
+            <div class="doc-preview">
+                @if (!string.IsNullOrEmpty(Model.PersonalPhotoPath))
+                {
+                    <img src="~/@Model.PersonalPhotoPath" alt="Personal Photo" />
+                }
+                else
+                {
+                    <div class="doc-missing"><i class="fas fa-image"></i> Not Uploaded</div>
+                }
+            </div>
+            @if (!string.IsNullOrEmpty(Model.PersonalPhotoPath))
+            {
+                <a href="~/@Model.PersonalPhotoPath" target="_blank" class="btn-doc-view"><i class="fas fa-external-link-alt"></i> View Full Size</a>
+            }
+        </div>
+
+        <!-- Identity Document -->
+        <div class="doc-card">
+            <div class="doc-label">Identity Document</div>
+            <div class="doc-preview">
+                @if (!string.IsNullOrEmpty(Model.IdentityImagePath))
+                {
+                    if (Model.IdentityImagePath.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <a href="~/@Model.IdentityImagePath" target="_blank"><i class="fas fa-file-pdf doc-pdf"></i></a>
+                    }
+                    else
+                    {
+                        <img src="~/@Model.IdentityImagePath" alt="Identity Document" />
+                    }
+                }
+                else
+                {
+                    <div class="doc-missing"><i class="fas fa-id-card"></i> Not Uploaded</div>
+                }
+            </div>
+            @if (!string.IsNullOrEmpty(Model.IdentityImagePath))
+            {
+                <a href="~/@Model.IdentityImagePath" target="_blank" class="btn-doc-view"><i class="fas fa-external-link-alt"></i> View Full Size</a>
+            }
+        </div>
+
+        <!-- Qualification Certificate -->
+        <div class="doc-card">
+            <div class="doc-label">Qualification Certificate</div>
+            <div class="doc-preview">
+                @if (!string.IsNullOrEmpty(Model.QualificationImagePath))
+                {
+                    if (Model.QualificationImagePath.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <a href="~/@Model.QualificationImagePath" target="_blank"><i class="fas fa-file-pdf doc-pdf"></i></a>
+                    }
+                    else
+                    {
+                        <img src="~/@Model.QualificationImagePath" alt="Qualification Certificate" />
+                    }
+                }
+                else
+                {
+                    <div class="doc-missing"><i class="fas fa-graduation-cap"></i> Not Uploaded</div>
+                }
+            </div>
+            @if (!string.IsNullOrEmpty(Model.QualificationImagePath))
+            {
+                <a href="~/@Model.QualificationImagePath" target="_blank" class="btn-doc-view"><i class="fas fa-external-link-alt"></i> View Full Size</a>
+            }
+        </div>
+    </div>
+
+    <div class="details-footer">
+        <form asp-action="DeleteRegistration" asp-route-id="@Model.Id" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn-danger-custom" onclick="return confirm('Are you sure?');">
+                <i class="fas fa-trash"></i> Delete Application
+            </button>
+        </form>
+    </div>
+</div>

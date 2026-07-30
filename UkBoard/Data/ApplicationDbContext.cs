@@ -12,5 +12,7 @@ namespace UkBoard.Data
         }
 
         public DbSet<Certificate> Certificates { get; set; }
+
+        public DbSet<StudentRegistration> StudentRegistrations { get; set; }
     }
 }

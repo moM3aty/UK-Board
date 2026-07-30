@@ -5,31 +5,48 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-8 mx-auto">
-        <div class="admin-card form-card">
-            <h4 class="mb-4">New Certificate Details</h4>
+<div class="admin-card form-card">
+    <h4 class="form-card-title"><i class="fas fa-plus-circle me-2"></i> New Certificate Details</h4>
 
-            <form asp-action="Create" method="post" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
 
-                <div class="form-group mb-3">
-                    <label asp-for="CertificateId" class="form-label"></label>
-                    <input asp-for="CertificateId" class="form-control" />
-                    <span asp-validation-for="CertificateId" class="text-danger small"></span>
-                </div>
-
-                <div class="form-group mb-4">
-                    <label asp-for="CertificateImage" class="form-label"></label>
-                    <input asp-for="CertificateImage" class="form-control" type="file" accept="image/*" />
-                    <span asp-validation-for="CertificateImage" class="text-danger small"></span>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-save">Create</button>
-                    <a asp-action="Index" class="btn btn-back">Back to List</a>
-                </div>
-            </form>
+        <div class="form-group">
+            <label asp-for="CertificateId" class="form-label"></label>
+            <div class="input-wrapper">
+                <i class="fas fa-hashtag input-icon"></i>
+                <input asp-for="CertificateId" class="form-control" />
+            </div>
+            <span asp-validation-for="CertificateId" class="text-danger small"></span>
         </div>
-    </div>
+
+        <div class="form-group">
+            <label asp-for="CertificateImage" class="form-label"></label>
+            <div class="upload-box admin-upload">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Click to upload Certificate Image</span>
+                <input asp-for="CertificateImage" type="file" accept="image/*" onchange="previewImage(this)" />
+            </div>
+            <span asp-validation-for="CertificateImage" class="text-danger small"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-save"><i class="fas fa-check"></i> Create</button>
+            <a asp-action="Index" class="btn-back"><i class="fas fa-arrow-left"></i> Back to List</a>
+        </div>
+    </form>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function previewImage(input) {
+            const box = input.closest('.upload-box');
+            const span = box.querySelector('span');
+            if (input.files && input.files[0]) {
+                box.classList.add('has-file');
+                span.innerHTML = '<i class="fas fa-check-circle"></i> ' + input.files[0].name;
+            }
+        }
+    </script>
+}

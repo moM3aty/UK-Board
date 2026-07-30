@@ -63,7 +63,7 @@ static async Task SeedAdminUserAsync(WebApplication app)
 
         string adminRole = "Admin";
         string adminEmail = "admin@ukboard.com";
-        string adminPassword = "Your_Password"; 
+        string adminPassword = "Admin123!"; 
 
         if (!await roleManager.RoleExistsAsync(adminRole))
         {

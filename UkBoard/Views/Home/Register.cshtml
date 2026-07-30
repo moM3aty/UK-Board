@@ -1,0 +1,187 @@
+﻿@model UkBoard.Models.StudentRegistrationViewModel
+
+@{
+    ViewData["Title"] = "Enrollment Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/registration.css" />
+
+<section class="registration-section" id="register">
+    <div class="container">
+        <div class="registration-card">
+            <div class="registration-header">
+                <div class="header-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h2>Enrollment Registration</h2>
+                <p>Please fill out the details accurately and upload required documents</p>
+            </div>
+
+            <div class="registration-body">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert-success-custom">
+                        <i class="fas fa-check-circle"></i>
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+
+                <form asp-action="Register" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="validation-summary text-danger small mb-3"></div>
+
+                    <!-- Row for Name & Phone -->
+                    <div class="form-row">
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label asp-for="FullName" class="form-label"></label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-id-badge input-icon"></i>
+                                <input asp-for="FullName" class="form-control" placeholder="Full name as in Passport" />
+                            </div>
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="form-label"></label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone-alt input-icon"></i>
+                                <input asp-for="PhoneNumber" class="form-control" placeholder="+44 7xxx xxxxxx" />
+                            </div>
+                            <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <!-- Desired Major -->
+                    <div class="form-group">
+                        <label asp-for="Major" class="form-label"></label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-book-open input-icon"></i>
+                            <select asp-for="Major" class="form-select">
+                                <option value="">-- Select Major --</option>
+                                <option value="Mental Health">Mental Health and Psychological Wellbeing</option>
+                                <option value="Family Counseling">Family Counseling and Relationship Guidance</option>
+                                <option value="Clinical Nutrition">Clinical Nutrition and Therapeutic Dietetics</option>
+                                <option value="Special Education">Special Education and Inclusive Teaching</option>
+                                <option value="Business Administration">Business Administration and Entrepreneurial Skills</option>
+                                <option value="Non-Surgical Beauty">Non-Surgical Beauty and Wellness Practices</option>
+                                <option value="Human Development">Human Development and Soft Skills Training</option>
+                                <option value="Media and Communication">Media and Communication Studies</option>
+                                <option value="Curriculum Design">Curriculum Design and Teaching Methodologies</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="Major" class="text-danger small"></span>
+                    </div>
+
+                    <!-- File Uploads -->
+                    <div class="upload-grid">
+                        <!-- Qualification -->
+                        <div>
+                            <label asp-for="QualificationImage" class="form-label"></label>
+                            <div class="upload-box" id="box-qual">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span id="text-qual">Click to upload Certificate</span>
+                                <input asp-for="QualificationImage" class="upload-input" type="file" accept="image/*,.pdf" onchange="updateUploadBox(this, 'box-qual', 'text-qual', 'Certificate uploaded')" />
+                            </div>
+                            <span asp-validation-for="QualificationImage" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Identity -->
+                        <div>
+                            <label asp-for="IdentityImage" class="form-label"></label>
+                            <div class="upload-box" id="box-id">
+                                <i class="fas fa-id-card"></i>
+                                <span id="text-id">Click to upload ID/Passport</span>
+                                <input asp-for="IdentityImage" class="upload-input" type="file" accept="image/*,.pdf" onchange="updateUploadBox(this, 'box-id', 'text-id', 'ID/Passport uploaded')" />
+                            </div>
+                            <span asp-validation-for="IdentityImage" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Personal Photo -->
+                        <div>
+                            <label asp-for="PersonalPhoto" class="form-label"></label>
+                            <div class="upload-box" id="box-photo">
+                                <i class="fas fa-camera-retro"></i>
+                                <span id="text-photo">Click to upload Photo</span>
+                                <input asp-for="PersonalPhoto" class="upload-input" type="file" accept="image/*" onchange="updateUploadBox(this, 'box-photo', 'text-photo', 'Photo uploaded')" />
+                            </div>
+                            <span asp-validation-for="PersonalPhoto" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms-container">
+                        <div class="terms-container-header">
+                            <i class="fas fa-file-contract"></i>
+                            <span>Transparency Charter & Enrollment Regulations</span>
+                        </div>
+                        <div class="terms-box">
+                            <strong>Welcome Message</strong><br>
+                            We extend a warm welcome to all students enrolling in our Independent Professional Programs. By joining, you become part of a distinguished community dedicated to professional development, lifelong learning, and recognition of individual achievement. This Charter sets forth the terms and conditions governing enrollment, ensuring clarity, transparency, and mutual understanding.
+
+                            <hr class="terms-divider">
+
+                            <strong>1. Nature of the Program</strong><br>
+                            The student acknowledges and accepts that the selected educational program is classified as an <strong>Independent Professional Program</strong> issued by a British entity. These programs are designed in accordance with private vocational training standards and do not fall under the framework of UK Higher Education.
+                            <br><br>
+
+                            <strong>2. Legal Titles</strong><br>
+                            The titles granted (including but not limited to <em>Professional Master</em>, <em>Professional Doctorate</em>, etc.) are professional training designations describing acquired skills. They do not constitute academic degrees recognized by governmental authorities or subject to local university regulation laws.
+                            <br><br>
+
+                            <strong>3. Documentation</strong><br>
+                            The Academy guarantees the authenticity and validity of the certificate issued by the British source. Notarization serves as proof of document legality but does not convert the program into an academic track.
+                            <br><br>
+
+                            <strong>4. Student Declaration</strong><br>
+                            The student hereby declares:<br>
+                            <em>"I have read and understood the nature of the Independent Professional Program. I agree to enroll with full knowledge that it does not grant a degree affiliated with British Higher Education, nor confer rights to claim academic equivalence or professional syndicate enrollment."</em>
+                            <br><br>
+
+                            <strong>5. Honorary & Honorific Certificates</strong><br>
+                            Honorary and honorific certificates (such as <em>Honorary Doctorate</em>, <em>Ambassador of Humanity and Peace</em>, and similar titles) are <strong>non‑academic and non‑scientific recognitions</strong>. They do not confer employment, academic rights, or professional status. Such certificates are issued solely as <strong>formal acknowledgments of appreciation</strong>, granted in recognition of the recipient’s achievements, contributions, and distinguished efforts in their professional and humanitarian life.
+                        </div>
+                        <span asp-validation-for="IsTransparencyCharterAgreed" class="text-danger small d-block"></span>
+
+                        <div class="checkbox-container">
+                            <input asp-for="IsTransparencyCharterAgreed" type="checkbox" id="termsCheck" onchange="toggleSubmitBtn()" />
+                            <label for="termsCheck">I have read the Transparency Charter and agree to its terms.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn" disabled>
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function toggleSubmitBtn() {
+            var checkBox = document.getElementById("termsCheck");
+            var submitBtn = document.getElementById("submitBtn");
+            submitBtn.disabled = !checkBox.checked;
+        }
+        window.onload = function () { toggleSubmitBtn(); };
+
+        function updateUploadBox(input, boxId, textId, successText) {
+            var box = document.getElementById(boxId);
+            var textSpan = document.getElementById(textId);
+
+            if (input.files && input.files[0]) {
+                box.classList.add('has-file');
+                var fileName = input.files[0].name;
+                if (fileName.length > 20) fileName = fileName.substring(0, 17) + '...';
+                textSpan.innerHTML = '<span class="file-success"><i class="fas fa-check-circle"></i> ' + successText + '</span><br><small class="file-name">' + fileName + '</small>';
+            } else {
+                box.classList.remove('has-file');
+                textSpan.innerHTML = 'Click to upload';
+            }
+        }
+    </script>
+}
