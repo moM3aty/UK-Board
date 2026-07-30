@@ -7,7 +7,7 @@
 
 <div class="admin-card">
     <div class="table-header">
-        <h4 class="table-title"><i class="fas fa-users me-2"></i> Registration Applications</h4>
+        <h4 class="table-title" style="color: #193750; font-weight:700;"><i class="fas fa-users me-2"></i> Registration Applications</h4>
         <form asp-action="StudentRegistrations" method="get" class="search-form">
             <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" class="search-input" placeholder="Search by name, phone or major...">
             <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
@@ -38,7 +38,7 @@
                 }
                 @foreach (var item in Model)
                 {
-                    <tr class="@(item.IsRead ? "" : "unread-row")">
+                    <tr class="@(item.IsRead ? "" : "unread-row")" style="@(item.IsRead ? "" : "background-color: #f0f8ff; font-weight: 600;")">
                         <td data-label="Date">@item.RegistrationDate.ToString("dd MMM yyyy")</td>
                         <td data-label="Name">@item.FullName</td>
                         <td data-label="Phone">@item.PhoneNumber</td>
@@ -46,20 +46,20 @@
                         <td data-label="Status">
                             @if (item.IsRead)
                             {
-                                <span class="status-badge bg-read"><i class="fas fa-check-circle"></i> Reviewed</span>
+                                <span class="status-badge bg-read" style="background:#198754; color:#fff; padding:5px 10px; border-radius:20px; font-size:0.8rem;"><i class="fas fa-check-circle"></i> Reviewed</span>
                             }
                             else
                             {
-                                <span class="status-badge bg-new"><i class="fas fa-bell"></i> New</span>
+                                <span class="status-badge bg-new" style="background:#ffc107; color:#000; padding:5px 10px; border-radius:20px; font-size:0.8rem;"><i class="fas fa-bell"></i> New</span>
                             }
                         </td>
                         <td data-label="Actions" class="actions-cell">
-                            <a asp-action="ViewRegistration" asp-route-id="@item.Id" class="btn-icon btn-view" title="View">
+                            <a asp-action="ViewRegistration" asp-route-id="@item.Id" class="btn btn-primary btn-sm" title="View">
                                 <i class="fas fa-eye"></i>
                             </a>
                             <form asp-action="DeleteRegistration" asp-route-id="@item.Id" method="post" style="display:inline;">
                                 @Html.AntiForgeryToken()
-                                <button type="button" class="btn-icon btn-delete delete-confirm" title="Delete">
+                                <button type="button" class="btn btn-danger btn-sm delete-confirm" title="Delete">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UkBoard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5b2f5a115abc2474d6a8e9f76b5bbe3e4b3369c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3b18cad26fc9cea734c09fc00dc083f35ffaa79")]
 [assembly: System.Reflection.AssemblyProductAttribute("UkBoard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UkBoard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

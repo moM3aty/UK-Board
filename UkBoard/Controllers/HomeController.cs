@@ -82,7 +82,6 @@ namespace UkBoard.Controllers
             {
                 try
                 {
-                    // رفع الملفات والحصول على المسارات
                     string qualPath = await UploadRegistrationFile(model.QualificationImage, "qualifications");
                     string idPath = await UploadRegistrationFile(model.IdentityImage, "identities");
                     string photoPath = await UploadRegistrationFile(model.PersonalPhoto, "photos");
@@ -103,7 +102,12 @@ namespace UkBoard.Controllers
                     _context.StudentRegistrations.Add(registration);
                     await _context.SaveChangesAsync();
 
+                    // توليد الرقم المرجعي بعد الحفظ لضمان وجود الـ ID
+                    string referenceId = $"UKB-{DateTime.Now.Year}-{registration.Id:D5}";
+
                     TempData["SuccessMessage"] = "Your application has been submitted successfully!";
+                    TempData["ReferenceId"] = referenceId; // حفظ الرقم المرجعي لعرضه للطالب
+
                     return RedirectToAction(nameof(Register));
                 }
                 catch (Exception ex)

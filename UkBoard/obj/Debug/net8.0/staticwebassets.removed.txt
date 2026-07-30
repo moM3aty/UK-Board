@@ -1,3 +1,3 @@
-D:\Dev\UK-Board\UkBoard\wwwroot\css\admin-forms.css
-D:\Dev\UK-Board\UkBoard\wwwroot\css\admin-layout.css
-D:\Dev\UK-Board\UkBoard\wwwroot\css\admin-login.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Projects\UK-Board\UkBoard\wwwroot\css\admin-forms.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Projects\UK-Board\UkBoard\wwwroot\css\admin-layout.css
+C:\Users\MOHAMED ABO-ELM3ATY\Downloads\Projects\UK-Board\UkBoard\wwwroot\css\admin-login.css
